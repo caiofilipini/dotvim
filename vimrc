@@ -225,7 +225,7 @@ else
         set columns=115
     endif
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Monaco:h16
+        set guifont=Menlo:h15
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
@@ -255,7 +255,11 @@ nnoremap Y y$
 let g:syntastic_enable_signs=1
 
 "snipmate setup
-source ~/.vim/snippets/support_functions.vim
+try
+  source ~/.vim/snippets/support_functions.vim
+catch
+  source $HOMEPATH\vimfiles\snippets\support_functions.vim
+endtry
 autocmd vimenter * call s:SetupSnippets()
 function! s:SetupSnippets()
 
