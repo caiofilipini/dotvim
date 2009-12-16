@@ -204,21 +204,17 @@ syntax on
 set mouse=a
 set ttymouse=xterm2
 
-"tell the term has 256 colors
-set t_Co=256
-
 "hide buffers when not displayed
 set hidden
 
-"dont load csapprox if we no gui support - silences an annoying warning
-if !has("gui")
-    let g:CSApprox_loaded = 1
-else
+if has("gui_running")
+		"tell the term has 256 colors
+		set t_Co=256
+
     if has("gui_gnome")
         set term=gnome-256color
         colorscheme desert
     else
-        set t_Co=256
         colorscheme vibrantink
         set guitablabel=%M%t
         set lines=40
@@ -231,6 +227,9 @@ else
         set guifont=Consolas:h12
 				set enc=utf-8
     endif
+else
+		"dont load csapprox if we no gui support - silences an annoying warning
+    let g:CSApprox_loaded = 1
 endif
 
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
