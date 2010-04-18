@@ -244,7 +244,8 @@ inoremap <C-L> <C-O>:nohls<CR>
 nnoremap <C-B> :BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
-nnoremap <c-f> :FuzzyFinderTextMate<CR>
+"nnoremap <c-f> :FuzzyFinderTextMate<CR>
+nnoremap <C-f> :tabnew<CR>:FuzzyFinderTextMate<CR>
 
 "map Q to something useful
 noremap Q gq
