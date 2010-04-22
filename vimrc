@@ -14,8 +14,15 @@ set showmode    "show current mode down the bottom
 set incsearch   "find the next match as we type the search
 set hlsearch    "hilight searches by default
 
-set nowrap      "dont wrap lines
+set number      "add line numbers
+set wrap linebreak textwidth=0 "adds soft text wrapping
 set linebreak   "wrap lines at convenient points
+set lbr
+
+"try to make possible to navigate within lines of wrapped lines
+nmap <Down> gj
+nmap <Up> gk
+set fo=l
 
 "statusline setup
 set statusline=%f       "tail of the filename
@@ -59,9 +66,6 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
-
-set number
-set wrap
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
