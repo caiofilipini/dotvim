@@ -43,3 +43,6 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/pastie"]
+	path = bundle/pastie
+	url = git://github.com/tpope/vim-pastie.git
