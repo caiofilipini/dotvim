@@ -204,6 +204,9 @@ set sidescroll=1
 filetype plugin on
 filetype indent on
 
+"load pathogen managed plugins
+call pathogen#runtime_append_all_bundles()
+
 "turn on syntax highlighting
 syntax on
 
@@ -257,6 +260,11 @@ noremap Q gq
 
 "make Y consistent with C and D
 nnoremap Y y$
+
+"bindings for ragtag
+inoremap <M-o>       <Esc>o
+inoremap <C-j>       <Down>
+let g:ragtag_global_maps = 1
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1

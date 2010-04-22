@@ -16,6 +16,14 @@ source ~/.vim/vimrc      "linux
 source ~/vimfiles/vimrc  "windows
 </code></pre>
 
+h2. Help Tags
+
+At first usage of vim, type ":" while in command mode and execute:
+
+  call pathogen#helptags()
+
+This will make the plugins documentations available upon :help
+
 h2. Dependencies
 
 You will need these dependencies figured out:
@@ -38,4 +46,5 @@ look for Luis Lavena's latest Ruby Installer (http://rubyforge.org/projects/ruby
 h2. Credits
 
 * Original project and most of the heavy lifting: @scrooloose
+* All the cool plugins for Rails, Cucumber and more: @timpope
 * Hacks and some snippets: @akitaonrails
