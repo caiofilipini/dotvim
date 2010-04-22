@@ -218,8 +218,8 @@ set ttymouse=xterm2
 set hidden
 
 if has("gui_running")
-		"tell the term has 256 colors
-		set t_Co=256
+    "tell the term has 256 colors
+    set t_Co=256
 
     if has("gui_gnome")
         set term=gnome-256color
@@ -235,10 +235,10 @@ if has("gui_running")
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
-				set enc=utf-8
+        set enc=utf-8
     endif
 else
-		"dont load csapprox if we no gui support - silences an annoying warning
+    "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
 endif
 
@@ -252,8 +252,7 @@ inoremap <C-L> <C-O>:nohls<CR>
 nnoremap <C-B> :BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
-"nnoremap <c-f> :FuzzyFinderTextMate<CR>
-nnoremap <C-f> :tabnew<CR>:FuzzyFinderTextMate<CR>
+nnoremap <c-f> :FuzzyFinderTextMate<CR>
 
 "map Q to something useful
 noremap Q gq
