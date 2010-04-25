@@ -260,6 +260,8 @@ if has("gui_running")
         let mapleader=","
         " make Mac's Option key behave as the Meta key
         set invmmta
+        " comma as the leader key
+        let mapleader=","
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
