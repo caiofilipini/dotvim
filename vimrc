@@ -225,13 +225,13 @@ if has("gui_running")
         set term=gnome-256color
         colorscheme desert
     else
-        colorscheme vibrantink
+        colorscheme railscasts
         set guitablabel=%M%t
         set lines=40
         set columns=115
     endif
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h15
+        set guifont=Monaco:h14
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
