@@ -249,10 +249,10 @@ nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
 "map to bufexplorer
-nnoremap <C-B> :BufExplorer<cr>
+nnoremap <leader>b :BufExplorer<cr>
 
 "map to fuzzy finder text mate stylez
-nnoremap <c-f> :FuzzyFinderTextMate<CR>
+nnoremap <leader>t :FuzzyFinderTextMate<CR>
 
 "map Q to something useful
 noremap Q gq
