@@ -1,3 +1,5 @@
+"Fabio Kung <fabio.kung@gmail.com>
+"
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -232,6 +234,7 @@ if has("gui_running")
     endif
     if has("gui_mac") || has("gui_macvim")
         set guifont=Monaco:h14
+        let mapleader=","
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
