@@ -43,6 +43,15 @@ On Windows you have to download Ctags and add ctags.exe in your PATH.
 Mac OS X and most Linux distros come with Ruby already. If you're in Windows
 look for Luis Lavena's latest Ruby Installer (http://rubyforge.org/projects/rubyinstaller/)
 
+h2. Learn Vim
+
+Visit the following sites to learn more about Vim:
+
+* http://vimcasts.org
+
+There are many sites teaching Vim, if you know of any other that are easy
+to follow for newcomers, let me know.
+
 h2. Credits
 
 * Original project and most of the heavy lifting: @scrooloose
