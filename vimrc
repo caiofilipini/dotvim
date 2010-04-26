@@ -21,6 +21,9 @@ set wrap linebreak textwidth=0 "adds soft text wrapping
 set linebreak   "wrap lines at convenient points
 set lbr
 
+"disable visual bell
+set visualbell t_vb=
+
 "try to make possible to navigate within lines of wrapped lines
 nmap <Down> gj
 nmap <Up> gk
