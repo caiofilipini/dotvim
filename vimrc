@@ -257,7 +257,6 @@ if has("gui_running")
     endif
     if has("gui_mac") || has("gui_macvim")
         set guifont=Monaco:h14
-        let mapleader=","
         " make Mac's Option key behave as the Meta key
         set invmmta
         " comma as the leader key
@@ -281,8 +280,8 @@ inoremap <C-L> <C-O>:nohls<CR>
 "map to bufexplorer
 nnoremap <leader>b :BufExplorer<cr>
 
-"map to fuzzy finder text mate stylez
-nnoremap <leader>t :FuzzyFinderTextMate<CR>
+"map to CommandT TextMate style finder
+nnoremap <leader>t :CommandT<CR>
 
 "map Q to something useful
 noremap Q gq
