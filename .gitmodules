@@ -49,3 +49,6 @@
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
 	url = git://github.com/akitaonrails/Command-T.git
+[submodule "bundle/textile"]
+	path = bundle/textile
+	url = http://github.com/timcharper/textile.vim.git

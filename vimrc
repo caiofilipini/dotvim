@@ -1,3 +1,5 @@
+"Fabio Kung <fabio.kung@gmail.com>
+"
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -30,6 +32,9 @@ nmap <D-k> gk
 nmap <D-4> g$
 nmap <D-6> g^
 nmap <D-0> g^
+
+"disable visual bell
+set visualbell t_vb=
 
 "try to make possible to navigate within lines of wrapped lines
 nmap <Down> gj
@@ -245,16 +250,17 @@ if has("gui_running")
         set term=gnome-256color
         colorscheme desert
     else
-        colorscheme vibrantink
+        colorscheme railscasts
         set guitablabel=%M%t
         set lines=40
         set columns=115
     endif
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h15
+        set guifont=Menlo:h14
         " key binding for Command-T to behave properly
-        macmenu &File.New\ Tab key=<nop>
-        map <D-t> :CommandT<CR>
+        " uncomment to replace the Mac Command-T key to Command-T plugin
+        "macmenu &File.New\ Tab key=<nop>
+        "map <D-t> :CommandT<CR>
         " make Mac's Option key behave as the Meta key
         set invmmta
     endif
@@ -274,10 +280,10 @@ nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
 "map to bufexplorer
-nnoremap <C-B> :BufExplorer<cr>
+nnoremap <leader>b :BufExplorer<cr>
 
-"map to fuzzy finder text mate stylez
-nnoremap <c-f> :FuzzyFinderTextMate<CR>
+"map to CommandT TextMate style finder
+nnoremap <leader>t :CommandT<CR>
 
 "map Q to something useful
 noremap Q gq
