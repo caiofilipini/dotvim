@@ -221,12 +221,12 @@ set scrolloff=3
 set sidescrolloff=7
 set sidescroll=1
 
+"load pathogen managed plugins
+call pathogen#runtime_append_all_bundles()
+
 "load ftplugins and indent files
 filetype plugin on
 filetype indent on
-
-"load pathogen managed plugins
-call pathogen#runtime_append_all_bundles()
 
 "turn on syntax highlighting
 syntax on
