@@ -46,3 +46,6 @@
 [submodule "bundle/pastie"]
 	path = bundle/pastie
 	url = git://github.com/tpope/vim-pastie.git
+[submodule "bundle/textile"]
+	path = bundle/textile
+	url = http://github.com/timcharper/textile.vim.git
