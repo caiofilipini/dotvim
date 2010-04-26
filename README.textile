@@ -1,7 +1,23 @@
+h1. Vim
+
+It is recommended that you use gVim in either Windows or Linux and MacVim for
+Mac. Download from:
+
+* (Windows) http://www.vim.org/download.php#pc (gvim72.exe)
+* (Mac) http://code.google.com/p/macvim/downloads/list (snapshot-52)
+
 h1. Usage
 
+Troubleshoot: Because of the large amount of submodules, if you ever have any
+trouble after pulling from the repository, it will be easier to just back up 
+your old .vim folder and just git clone a new version.
+
 Clone this repo into your home directory either as .vim (linux/mac) or 
-vimfiles (Windows).
+vimfiles (Windows). Such as:
+
+<pre><code>
+git clone git://github.com/akitaonrails/vimfiles.git ~/.vim
+</pre></code>
 
 Then 'cd' into the repo and run this to get the snippets submodule:
 
@@ -10,7 +26,17 @@ git submodule init
 git submodule update
 </code></pre>
 
-Put this in your .vimrc file (in your home folder) along with your personal hacks:
+Now just copy (or symlink) the .vim/vimrc file as .vimrc (Mac/Linux)
+or copy as _vimrc (Windows) in your home directory. In Mac and Linux, the 
+easiest thing to do is:
+
+<pre><code>
+ln -s ~/.vim/vimrc ~/.vimrc
+</pre></code>
+
+If you already have a custom .vimrc file, append the following lines to
+load everything else along with your personal hacks:
+
 <pre><code>
 source ~/.vim/vimrc      "linux
 source ~/vimfiles/vimrc  "windows
@@ -43,6 +69,28 @@ On Windows you have to download Ctags and add ctags.exe in your PATH.
 Mac OS X and most Linux distros come with Ruby already. If you're in Windows
 look for Luis Lavena's latest Ruby Installer (http://rubyforge.org/projects/rubyinstaller/)
 
+h1. IMPORTANT: Command-T
+
+The latest version replaces the old Fuzzy Finder with a new one called 
+"Command-T" form wincent.com. I've replaced the old "Command-T" key 
+binding that used to open new tabs and assigned it to this new plugin
+so it behaves the same as Textmate.
+
+You may have problems in Mac/Linux because this plugin requires a native
+extension, so you will have to do this:
+
+<pre><code>
+cd ~/.vim/bundle/Command-T/ruby/command-t
+ruby extconf.rb
+make
+</pre></code>
+
+This means that you need to have your Ruby source files and GCC also 
+installed. A binary for Windows is already bundled so it should just
+work. I've also included a binary compiled for Ruby Enterprise Edition,
+but if you are using other Ruby distros, you will need to recompile.
+
+
 h2. Learn Vim
 
 Visit the following sites to learn more about Vim:
@@ -56,4 +104,5 @@ h2. Credits
 
 * Original project and most of the heavy lifting: @scrooloose
 * All the cool plugins for Rails, Cucumber and more: @timpope
+* Great Command-T plugin by: Wincent
 * Hacks and some snippets: @akitaonrails
