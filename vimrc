@@ -233,6 +233,10 @@ set ttymouse=xterm2
 "hide buffers when not displayed
 set hidden
 
+"Command-T configuration
+let g:CommandTMaxHeight=10
+let g:CommandTMatchWindowAtTop=1
+
 if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
@@ -248,6 +252,9 @@ if has("gui_running")
     endif
     if has("gui_mac") || has("gui_macvim")
         set guifont=Menlo:h15
+        " key binding for Command-T to behave properly
+        macmenu &File.New\ Tab key=<nop>
+        map <D-t> :CommandT<CR>
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
