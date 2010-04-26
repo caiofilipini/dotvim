@@ -258,6 +258,8 @@ if has("gui_running")
     if has("gui_mac") || has("gui_macvim")
         set guifont=Monaco:h14
         let mapleader=","
+        " make Mac's Option key behave as the Meta key
+        set invmmta
     endif
     if has("gui_win32") || has("gui_win32s")
         set guifont=Consolas:h12
@@ -293,6 +295,12 @@ let g:ragtag_global_maps = 1
 
 "mark syntax errors with :signs
 let g:syntastic_enable_signs=1
+
+"key mapping for vimgrep result navigation
+map <A-o> :copen<CR>
+map <A-q> :cclose<CR>
+map <A-j> :cnext<CR>
+map <A-k> :cprevious<CR>
 
 "snipmate setup
 try
