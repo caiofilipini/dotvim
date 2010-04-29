@@ -309,7 +309,7 @@ map <A-k> :cprevious<CR>
 try
   source ~/.vim/snippets/support_functions.vim
 catch
-  source $HOMEPATH\vimfiles\snippets\support_functions.vim
+  source ~/vimfiles/snippets/support_functions.vim
 endtry
 autocmd vimenter * call s:SetupSnippets()
 function! s:SetupSnippets()
