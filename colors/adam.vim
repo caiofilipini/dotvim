@@ -30,7 +30,7 @@ hi Error		guibg=Red
 hi Todo			guifg=Black	guibg=orange
 hi Cursor		guibg=#ffffff guifg=#cac2ff
 hi Search		guibg=#103F5F gui=bold
-hi IncSearch	gui=bold guibg=#285f7f
+hi IncSearch	gui=bold guibg=#ffffff
 hi LineNr		guifg=darkgrey
 hi title		guifg=darkgrey
 hi StatusLineNC	gui=NONE guifg=lightblue guibg=darkblue

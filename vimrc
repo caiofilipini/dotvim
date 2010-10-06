@@ -1,8 +1,10 @@
-"Fabio Kung <fabio.kung@gmail.com>
+"Fernando Meyer <fmeyer@pigraph.com>
 "
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
 set nocompatible
+
+let mapleader = ","
 
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -20,25 +22,65 @@ set number      "add line numbers
 set showbreak=...
 set wrap linebreak nolist
 
-"mapping for command key to map navigation thru display lines instead
-"of just numbered lines
-vmap <D-j> gj
-vmap <D-k> gk
-vmap <D-4> g$
-vmap <D-6> g^
-vmap <D-0> g^
-nmap <D-j> gj
-nmap <D-k> gk
-nmap <D-4> g$
-nmap <D-6> g^
-nmap <D-0> g^
+"return a warning for "long lines" where "long" is either &textwidth or 80 (if
+"no &textwidth is set)
+"
+"return '' if no long lines
+"return '[#x,my,$z] if long lines are found, were x is the number of long
+"lines, y is the median length of the long lines and z is the length of the
+"longest line
+function! StatuslineLongLineWarning()
+    if !exists("b:statusline_long_line_warning")
+        let long_line_lens = s:LongLines()
+
+        if len(long_line_lens) > 0
+            let b:statusline_long_line_warning = "[" .
+                        \ '#' . len(long_line_lens) . "," .
+                        \ 'm' . s:Median(long_line_lens) . "," .
+                        \ '$' . max(long_line_lens) . "]"
+        else
+            let b:statusline_long_line_warning = ""
+        endif
+    endif
+    return b:statusline_long_line_warning
+endfunction
+
+"return a list containing the lengths of the long lines in this buffer
+function! s:LongLines()
+    let threshold = (&tw ? &tw : 80)
+    let spaces = repeat(" ", &ts)
+
+    let long_line_lens = []
+
+    let i = 1
+    while i <= line("$")
+        let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
+        if len > threshold
+            call add(long_line_lens, len)
+        endif
+        let i += 1
+    endwhile
+
+    return long_line_lens
+endfunction
+
+"find the median of the given array of numbers
+function! s:Median(nums)
+    let nums = sort(a:nums)
+    let l = len(nums)
+
+    if l % 2 == 1
+        let i = (l-1) / 2
+        return nums[i]
+    else
+        return (nums[l/2] + nums[(l/2)-1]) / 2
+    endif
+endfunction
 
 "disable visual bell
 set visualbell t_vb=
 
 "try to make possible to navigate within lines of wrapped lines
-nmap <Down> gj
-nmap <Up> gk
 set fo=l
 
 "statusline setup
@@ -139,66 +181,13 @@ endfunction
 "recalculate the long line warning when idle and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
-"return a warning for "long lines" where "long" is either &textwidth or 80 (if
-"no &textwidth is set)
-"
-"return '' if no long lines
-"return '[#x,my,$z] if long lines are found, were x is the number of long
-"lines, y is the median length of the long lines and z is the length of the
-"longest line
-function! StatuslineLongLineWarning()
-    if !exists("b:statusline_long_line_warning")
-        let long_line_lens = s:LongLines()
-
-        if len(long_line_lens) > 0
-            let b:statusline_long_line_warning = "[" .
-                        \ '#' . len(long_line_lens) . "," .
-                        \ 'm' . s:Median(long_line_lens) . "," .
-                        \ '$' . max(long_line_lens) . "]"
-        else
-            let b:statusline_long_line_warning = ""
-        endif
-    endif
-    return b:statusline_long_line_warning
-endfunction
-
-"return a list containing the lengths of the long lines in this buffer
-function! s:LongLines()
-    let threshold = (&tw ? &tw : 80)
-    let spaces = repeat(" ", &ts)
-
-    let long_line_lens = []
-
-    let i = 1
-    while i <= line("$")
-        let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
-        if len > threshold
-            call add(long_line_lens, len)
-        endif
-        let i += 1
-    endwhile
-
-    return long_line_lens
-endfunction
-
-"find the median of the given array of numbers
-function! s:Median(nums)
-    let nums = sort(a:nums)
-    let l = len(nums)
-
-    if l % 2 == 1
-        let i = (l-1) / 2
-        return nums[i]
-    else
-        return (nums[l/2] + nums[(l/2)-1]) / 2
-    endif
-endfunction
-
 "indent settings
+set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set autoindent
+set relativenumber
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -208,6 +197,7 @@ set nofoldenable        "dont fold by default
 set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+
 
 "display tabs and trailing spaces
 "set list
@@ -241,8 +231,18 @@ set ttymouse=xterm2
 "hide buffers when not displayed
 set hidden
 
-"Command-T configuration
-let g:CommandTMaxHeight=10
+"Backups
+set nobackup               " do not keep backups after close
+set nowritebackup          " do not keep a backup while working
+set noswapfile             " don't keep swp files either
+set backupdir=~/.vim/backup " store backups under ~/.vim/backup
+set backupcopy=yes         " keep attributes of original file
+set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
+set directory=~/.vim/swap,~/tmp,. " keep swp files under ~/.vim/swap
+
+
+"leader-t configuration
+let g:CommandTMaxHeight=15
 let g:CommandTMatchWindowAtTop=1
 
 if has("gui_running")
@@ -253,66 +253,29 @@ if has("gui_running")
         set term=gnome-256color
         colorscheme desert
     else
-        colorscheme railscasts
+        colorscheme lucius
         set guitablabel=%M%t
-        set lines=40
-        set columns=115
+        set lines=150
+        set columns=250
     endif
+
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h14
+        set guifont=Menlo:h12
         " key binding for Command-T to behave properly
         " uncomment to replace the Mac Command-T key to Command-T plugin
-        "macmenu &File.New\ Tab key=<nop>
-        "map <D-t> :CommandT<CR>
         " make Mac's Option key behave as the Meta key
         set invmmta
-    endif
-    if has("gui_win32") || has("gui_win32s")
-        set guifont=Consolas:h12
-        set enc=utf-8
     endif
 else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
 endif
 
-nmap <silent> <Leader>p :NERDTreeToggle<CR>
-
-"make <c-l> clear the highlight as well as redraw
-nnoremap <C-L> :nohls<CR><C-L>
-inoremap <C-L> <C-O>:nohls<CR>
-
-"map to bufexplorer
-nnoremap <leader>b :BufExplorer<cr>
-
-"map to CommandT TextMate style finder
-nnoremap <leader>t :CommandT<CR>
-
-"map Q to something useful
-noremap Q gq
-
-"make Y consistent with C and D
-nnoremap Y y$
-
-"bindings for ragtag
-inoremap <M-o>       <Esc>o
-inoremap <C-j>       <Down>
-let g:ragtag_global_maps = 1
-
-"mark syntax errors with :signs
-let g:syntastic_enable_signs=1
-
-"key mapping for vimgrep result navigation
-map <A-o> :copen<CR>
-map <A-q> :cclose<CR>
-map <A-j> :cnext<CR>
-map <A-k> :cprevious<CR>
-
 "snipmate setup
 try
-  source ~/.vim/snippets/support_functions.vim
+    source ~/.vim/snippets/support_functions.vim
 catch
-  source ~/vimfiles/snippets/support_functions.vim
+    source ~/vimfiles/snippets/support_functions.vim
 endtry
 autocmd vimenter * call s:SetupSnippets()
 function! s:SetupSnippets()
@@ -359,6 +322,121 @@ function! s:HighlightLongLines(width)
     if targetWidth > 0
         exec 'match Todo /\%>' . (targetWidth) . 'v/'
     else
-        echomsg "Usage: HighlightLongLines [natural number]"
-    endif
+
 endfunction
+
+" == KEYBINDINGS ===================================================
+nmap <silent> <Leader>p :NERDTreeToggle<CR>
+
+"make <c-l> clear the highlight as well as redraw
+nnoremap <C-L> :nohls<CR><C-L>
+inoremap <C-L> <C-O>:nohls<CR>
+
+"map to bufexplorer
+nnoremap <leader>be :BufExplorer<cr>
+
+"map to CommandT TextMate style finder
+nnoremap <silent> <leader>t :CommandT<CR>
+
+"map Q to something useful
+noremap Q gq
+
+"make Y consistent with C and D
+nnoremap Y y$
+
+"bindings for ragtag
+inoremap <M-o>       <Esc>o
+inoremap <C-j>       <Down>
+let g:ragtag_global_maps = 1
+
+"mark syntax errors with :signs
+let g:syntastic_enable_signs=1
+
+"key mapping for vimgrep result navigation
+map <A-o> :copen<CR>
+map <A-q> :cclose<CR>
+map <A-j> :cnext<CR>
+map <A-k> :cprevious<CR>
+
+" Tab mappings.
+map <leader>tt :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+map <leader>to :tabonly<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprevious<cr>
+map <leader>tf :tabfirst<cr>
+map <leader>tl :tablast<cr>
+map <leader>tm :tabmove
+
+
+" Long lines can mess up movement - fix that
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+
+"mapping for command key to map navigation thru display lines instead
+"of just numbered lines
+vmap <D-j> gj
+vmap <D-k> gk
+vmap <D-4> g$
+vmap <D-6> g^
+vmap <D-0> g^
+nmap <D-j> gj
+nmap <D-k> gk
+nmap <D-4> g$
+nmap <D-6> g^
+nmap <D-0> g^
+
+nmap <Down> gj
+nmap <Up> gk
+
+
+" textmate like identation
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+
+" disable  
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+" -- Make C-e and C-y scroll faster
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
+
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+nnoremap <leader>a :Ack
+nnoremap <leader>c :bd<CR>
+nnoremap <leader>ft Vatzf
+nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:let @/=''<CR>
+nnoremap <leader>q gqip
+nnoremap <leader>v V`]
+nnoremap <leader>l :nohlsearch<CR> 
+inoremap jj <ESC>
+nnoremap <leader>ww <C-w>v<C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+imap <S-l> <Space>=><Space>
+
+" save on lost focus 
+au FocusLost * :wa
+
+" Edit my .vimrc on new tab
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" Reload the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
