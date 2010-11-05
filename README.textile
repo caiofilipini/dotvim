@@ -106,3 +106,5 @@ h2. Credits
 * All the cool plugins for Rails, Cucumber and more: @timpope
 * Great Command-T plugin by: Wincent
 * Hacks and some snippets: @akitaonrails
+* Based on http://github.com/fmeyer/dotvim
+
