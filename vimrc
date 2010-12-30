@@ -253,7 +253,7 @@ if has("gui_running")
         set term=gnome-256color
         colorscheme desert
     else
-        colorscheme lucius
+        colorscheme sorcerer
         set guitablabel=%M%t
         set lines=150
         set columns=250
