@@ -1,60 +1,60 @@
 [submodule "snippets"]
 	path = snippets
-	url = git://github.com/akitaonrails/snipmate-snippets.git
+	url = http://github.com/akitaonrails/snipmate-snippets.git
 [submodule "bundle/rails"]
 	path = bundle/rails
-	url = git://github.com/tpope/vim-rails.git
+	url = http://github.com/tpope/vim-rails.git
 [submodule "bundle/cucumber"]
 	path = bundle/cucumber
-	url = git://github.com/tpope/vim-cucumber.git
+	url = http://github.com/tpope/vim-cucumber.git
 [submodule "bundle/haml"]
 	path = bundle/haml
-	url = git://github.com/tpope/vim-haml.git
+	url = http://github.com/tpope/vim-haml.git
 [submodule "bundle/surround"]
 	path = bundle/surround
-	url = git://github.com/tpope/vim-surround.git
+	url = http://github.com/tpope/vim-surround.git
 [submodule "bundle/NERD_tree"]
 	path = bundle/NERD_tree
-	url = git://github.com/scrooloose/nerdtree.git
+	url = http://github.com/scrooloose/nerdtree.git
 [submodule "bundle/NERD_commenter"]
 	path = bundle/NERD_commenter
-	url = git://github.com/scrooloose/nerdcommenter.git
+	url = http://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/ragtag"]
 	path = bundle/ragtag
-	url = git://github.com/tpope/vim-ragtag.git
+	url = http://github.com/tpope/vim-ragtag.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
-	url = git://github.com/tpope/vim-fugitive.git
+	url = http://github.com/tpope/vim-fugitive.git
 [submodule "bundle/markdown"]
 	path = bundle/markdown
-	url = git://github.com/tpope/vim-markdown.git
+	url = http://github.com/tpope/vim-markdown.git
 [submodule "bundle/vividchalk"]
 	path = bundle/vividchalk
-	url = git://github.com/tpope/vim-vividchalk.git
+	url = http://github.com/tpope/vim-vividchalk.git
 [submodule "bundle/git"]
 	path = bundle/git
-	url = git://github.com/tpope/vim-git.git
+	url = http://github.com/tpope/vim-git.git
 [submodule "bundle/endwise"]
 	path = bundle/endwise
-	url = git://github.com/tpope/vim-endwise.git
+	url = http://github.com/tpope/vim-endwise.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = git://github.com/akitaonrails/snipmate.vim.git
+	url = http://github.com/akitaonrails/snipmate.vim.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
+	url = http://github.com/scrooloose/syntastic.git
 [submodule "bundle/pastie"]
 	path = bundle/pastie
-	url = git://github.com/tpope/vim-pastie.git
+	url = http://github.com/tpope/vim-pastie.git
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
-	url = git://github.com/akitaonrails/Command-T.git
+	url = http://github.com/akitaonrails/Command-T.git
 [submodule "bundle/textile"]
 	path = bundle/textile
-	url = git://github.com/timcharper/textile.vim.git
+	url = http://github.com/timcharper/textile.vim.git
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
-	url = git://github.com/vim-ruby/vim-ruby.git
+	url = http://github.com/vim-ruby/vim-ruby.git
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
-	url = git://github.com/tpope/vim-unimpaired.git
+	url = http://github.com/tpope/vim-unimpaired.git
