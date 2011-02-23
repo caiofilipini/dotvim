@@ -182,12 +182,11 @@ endfunction
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
 "indent settings
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
-set relativenumber
 
 "folding settings
 set foldmethod=indent   "fold based on indent
@@ -269,6 +268,7 @@ if has("gui_running")
 else
     "dont load csapprox if there is no gui support - silences an annoying warning
     let g:CSApprox_loaded = 1
+    let g:CSApprox_verbose_level = 0
 endif
 
 "snipmate setup
@@ -398,6 +398,11 @@ nmap <D-[> <<
 nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
+
+" tab/shift+tab to navigate between open tabs
+nmap <Tab> gt
+nmap <S-Tab> gT
+
 
 " disable  
 "nnoremap <up> <nop>
