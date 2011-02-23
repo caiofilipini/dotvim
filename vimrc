@@ -250,7 +250,7 @@ if has("gui_running")
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme desert
+        colorscheme sorcerer
     else
         colorscheme sorcerer
         set guitablabel=%M%t
