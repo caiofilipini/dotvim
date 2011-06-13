@@ -127,6 +127,7 @@ set statusline+=\ %P    "percent through file
 set laststatus=2
 
 "turn off needless toolbar on gvim/mvim
+set guioptions-=m
 set guioptions-=T
 
 "recalculate the trailing whitespace warning when idle, and after saving
@@ -239,7 +240,6 @@ set backupcopy=yes         " keep attributes of original file
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=~/.vim/swap,~/tmp,. " keep swp files under ~/.vim/swap
 
-
 "leader-t configuration
 let g:CommandTMaxHeight=15
 let g:CommandTMatchWindowAtTop=1
@@ -251,6 +251,7 @@ if has("gui_running")
     if has("gui_gnome")
         set term=gnome-256color
         colorscheme sorcerer
+        set guifont=Monaco\ 10
     else
         colorscheme sorcerer
         set guitablabel=%M%t
@@ -266,9 +267,12 @@ if has("gui_running")
         set invmmta
     endif
 else
-    "dont load csapprox if there is no gui support - silences an annoying warning
-    let g:CSApprox_loaded = 1
-    let g:CSApprox_verbose_level = 0
+  set t_Co=256
+  colorscheme xoria256
+
+  "dont load csapprox if there is no gui support - silences an annoying warning
+  let g:CSApprox_loaded = 1
+  let g:CSApprox_verbose_level = 0
 endif
 
 "snipmate setup
