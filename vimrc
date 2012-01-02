@@ -437,10 +437,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" insert hashrocket
 imap <C-l> <Space>=><Space>
 
+" remove parentheses from method call
+nmap <C-h> i$<Esc>f(r f)xF$x
+
+" alias for including ruby debugger
+ab rdb require 'ruby-debug';debugger
+
 " save on lost focus 
-au FocusLost * :wa
+"au FocusLost * :wa
 
 " Edit my .vimrc on new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
