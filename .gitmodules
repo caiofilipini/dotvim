@@ -58,3 +58,6 @@
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-powerline"]
+	path = bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
