@@ -260,7 +260,8 @@ if has("gui_running")
     endif
 
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h12
+        set guifont=Monaco\ for\ Powerline:h12
+
         " key binding for Command-T to behave properly
         " uncomment to replace the Mac Command-T key to Command-T plugin
         " make Mac's Option key behave as the Meta key
@@ -274,6 +275,9 @@ else
   let g:CSApprox_loaded = 1
   let g:CSApprox_verbose_level = 0
 endif
+
+" enable vim-powerline fancy icons
+let g:Powerline_symbols = 'fancy'
 
 "snipmate setup
 try
