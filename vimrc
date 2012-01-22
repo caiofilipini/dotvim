@@ -219,3 +219,11 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
+
+" Delete trailing white space when saving
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+au BufWrite * :call DeleteTrailingWS()
