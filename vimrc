@@ -99,10 +99,8 @@ if has("gui_running")
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme sorcerer
         set guifont=Monaco\ 10
     else
-        colorscheme sorcerer
         set guitablabel=%M%t
         set lines=150
         set columns=250
@@ -118,12 +116,13 @@ if has("gui_running")
     endif
 else
   set t_Co=256
-  colorscheme xoria256
 
   "dont load csapprox if there is no gui support - silences an annoying warning
   let g:CSApprox_loaded = 1
   let g:CSApprox_verbose_level = 0
 endif
+
+colorscheme Tomorrow-Night
 
 "always show statusline
 set laststatus=2
@@ -188,7 +187,7 @@ nmap <Up> gk
 nmap <Tab> gt
 nmap <S-Tab> gT
 
-" disable  
+" disable
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
 "nnoremap <left> <nop>
@@ -209,7 +208,7 @@ nmap <C-h> i$<Esc>f(r f)xF$x
 " alias for including ruby debugger
 ab rdb require 'ruby-debug';debugger
 
-" save on lost focus 
+" save on lost focus
 "au FocusLost * :wa
 
 " Edit my .vimrc on new tab
