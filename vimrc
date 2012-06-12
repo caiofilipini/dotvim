@@ -107,7 +107,7 @@ if has("gui_running")
     endif
 
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Monaco\ for\ Powerline:h12
+        set guifont=Menlo:h12
 
         " key binding for Command-T to behave properly
         " uncomment to replace the Mac Command-T key to Command-T plugin
