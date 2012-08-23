@@ -64,3 +64,6 @@
 [submodule "bundle/vim-tomorrow-theme"]
 	path = bundle/vim-tomorrow-theme
 	url = git@github.com:caiofilipini/Vim-Tomorrow-Theme.git
+[submodule "bundle/AutoTag"]
+	path = bundle/AutoTag
+	url = git@github.com:vim-scripts/AutoTag.git
