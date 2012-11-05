@@ -89,6 +89,9 @@ set backupcopy=yes         " keep attributes of original file
 set backupskip=/tmp/*,$TMPDIR/*,$TMP/*,$TEMP/*
 set directory=~/.vim/swap,~/tmp,. " keep swp files under ~/.vim/swap
 
+"AutoTag configuration
+let g:autotag_ctags_cmd="/usr/local/bin/ctags"
+
 "leader-t configuration
 let g:CommandTMaxHeight=15
 let g:CommandTMatchWindowAtTop=1
@@ -129,6 +132,10 @@ set laststatus=2
 
 "enable vim-powerline fancy icons
 let g:Powerline_symbols = 'fancy'
+
+"VimClojure
+let vimclojure#HighlightBuiltins = 1
+let vimclojure#ParenRainbow = 1
 
 "snipmate setup
 try
@@ -187,18 +194,9 @@ nmap <Up> gk
 nmap <Tab> gt
 nmap <S-Tab> gT
 
-" disable
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
-
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
+" Ruby key bindings
 " insert hashrocket
 imap <C-l> <Space>=><Space>
 
@@ -208,8 +206,9 @@ nmap <C-h> i$<Esc>f(r f)xF$x
 " alias for including ruby debugger
 ab rdb require 'ruby-debug';debugger
 
-" save on lost focus
-"au FocusLost * :wa
+" Clojure key bindings
+" Control + m to send whole buffer to REPL
+"nmap <C-m> ggVG<C-c><C-c>
 
 " Edit my .vimrc on new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
