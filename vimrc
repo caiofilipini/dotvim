@@ -125,7 +125,8 @@ else
   let g:CSApprox_verbose_level = 0
 endif
 
-colorscheme Tomorrow-Night
+set background=dark
+colorscheme solarized
 
 "always show statusline
 set laststatus=2
