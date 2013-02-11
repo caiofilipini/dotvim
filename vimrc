@@ -47,7 +47,7 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 "display tabs and trailing spaces
 "set list
 "set listchars=tab:\ \ ,extends:>,precedes:<
-" disabling list because it interferes with soft wrap
+"disabling list because it interferes with soft wrap
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
@@ -92,9 +92,13 @@ set directory=~/.vim/swap,~/tmp,. " keep swp files under ~/.vim/swap
 "AutoTag configuration
 let g:autotag_ctags_cmd="/usr/local/bin/ctags"
 
-"leader-t configuration
-let g:CommandTMaxHeight=15
-let g:CommandTMatchWindowAtTop=1
+"CtrlP config
+let g:ctrlp_extensions            = ['tag']
+let g:ctrlp_map                   = ',,'
+let g:ctrlp_match_window_bottom   = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_user_command          = ['.git/', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_working_path_mode     = 'r'
 
 if has("gui_running")
     "tell the term has 256 colors
@@ -107,15 +111,6 @@ if has("gui_running")
         set guitablabel=%M%t
         set lines=150
         set columns=250
-    endif
-
-    if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h12
-
-        " key binding for Command-T to behave properly
-        " uncomment to replace the Mac Command-T key to Command-T plugin
-        " make Mac's Option key behave as the Meta key
-        set invmmta
     endif
 else
   set t_Co=256
@@ -158,7 +153,7 @@ function! s:SetupSnippets()
     call ExtractSnips("~/.vim/snippets/html", "php")
 endfunction
 
-" == KEYBINDINGS ===================================================
+"== KEYBINDINGS ===================================================
 nmap <silent> <Leader>p :NERDTreeToggle<CR>
 
 "make <c-l> clear the highlight as well as redraw
@@ -167,9 +162,6 @@ inoremap <C-L> <C-O>:nohls<CR>
 
 "map to bufexplorer
 nnoremap <leader>be :BufExplorer<cr>
-
-"map to CommandT TextMate style finder
-nnoremap <silent> <leader>t :CommandT<CR>
 
 "make Y consistent with C and D
 nnoremap Y y$
@@ -191,35 +183,35 @@ vnoremap k gk
 nmap <Down> gj
 nmap <Up> gk
 
-" tab/shift+tab to navigate between open tabs
+"tab/shift+tab to navigate between open tabs
 nmap <Tab> gt
 nmap <S-Tab> gT
 
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-" Ruby key bindings
-" insert hashrocket
+"Ruby key bindings
+"insert hashrocket
 imap <C-l> <Space>=><Space>
 
-" remove parentheses from method call
+"remove parentheses from method call
 nmap <C-h> i$<Esc>f(r f)xF$x
 
-" alias for including ruby debugger
+"alias for including ruby debugger
 ab rdb require 'ruby-debug';debugger
 
-" Clojure key bindings
-" Control + m to send whole buffer to REPL
+"Clojure key bindings
+"Control + m to send whole buffer to REPL
 "nmap <C-m> ggVG<C-c><C-c>
 
-" Edit my .vimrc on new tab
+"Edit my .vimrc on new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
-" Reload the vimrc file after saving it
+"Reload the vimrc file after saving it
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-" Delete trailing white space when saving
+"Delete trailing white space when saving
 func! DeleteTrailingWS()
   exe "normal mz"
   %s/\s\+$//ge
