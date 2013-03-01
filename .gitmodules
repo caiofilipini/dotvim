@@ -13,12 +13,6 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = http://github.com/tpope/vim-surround.git
-[submodule "bundle/NERD_tree"]
-	path = bundle/NERD_tree
-	url = http://github.com/scrooloose/nerdtree.git
-[submodule "bundle/NERD_commenter"]
-	path = bundle/NERD_commenter
-	url = http://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/ragtag"]
 	path = bundle/ragtag
 	url = http://github.com/tpope/vim-ragtag.git
@@ -28,9 +22,6 @@
 [submodule "bundle/markdown"]
 	path = bundle/markdown
 	url = http://github.com/tpope/vim-markdown.git
-[submodule "bundle/vividchalk"]
-	path = bundle/vividchalk
-	url = http://github.com/tpope/vim-vividchalk.git
 [submodule "bundle/git"]
 	path = bundle/git
 	url = http://github.com/tpope/vim-git.git
@@ -43,27 +34,12 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = http://github.com/scrooloose/syntastic.git
-[submodule "bundle/pastie"]
-	path = bundle/pastie
-	url = http://github.com/tpope/vim-pastie.git
-[submodule "bundle/textile"]
-	path = bundle/textile
-	url = http://github.com/timcharper/textile.vim.git
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
 	url = http://github.com/vim-ruby/vim-ruby.git
-[submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
-	url = http://github.com/tpope/vim-unimpaired.git
 [submodule "bundle/vim-powerline"]
 	path = bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "bundle/vim-tomorrow-theme"]
-	path = bundle/vim-tomorrow-theme
-	url = git@github.com:caiofilipini/Vim-Tomorrow-Theme.git
-[submodule "bundle/AutoTag"]
-	path = bundle/AutoTag
-	url = git@github.com:vim-scripts/AutoTag.git
 [submodule "bundle/vim-slime"]
 	path = bundle/vim-slime
 	url = git@github.com:jpalardy/vim-slime.git
