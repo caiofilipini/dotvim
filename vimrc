@@ -27,6 +27,9 @@ set hlsearch
 "add line numbers
 set number
 
+"trying relativenumber
+set relativenumber
+
 "wrap line breaks
 set showbreak=...
 set wrap linebreak nolist
@@ -105,6 +108,9 @@ let g:ctrlp_working_path_mode     = 'r'
 
 set background=dark
 colorscheme solarized
+
+"always show status line
+set laststatus=2
 
 "enable vim-powerline fancy icons
 let g:Powerline_symbols = 'fancy'
