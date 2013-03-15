@@ -115,10 +115,6 @@ set laststatus=2
 "enable vim-powerline fancy icons
 let g:Powerline_symbols = 'fancy'
 
-"VimClojure options
-let vimclojure#HighlightBuiltins = 1
-let vimclojure#ParenRainbow = 1
-
 "snipmate setup
 try
     source ~/.vim/snippets/support_functions.vim
