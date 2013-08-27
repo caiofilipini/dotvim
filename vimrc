@@ -179,6 +179,14 @@ nmap <C-h> i$<Esc>f(r f)xF$x
 "Control + m to send whole buffer to REPL
 "nmap <C-m> ggVG<C-c><C-c>
 
+"tabular key mappings
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>ah :Tabularize /=><CR>
+vmap <Leader>ah :Tabularize /=><CR>
+
 "Edit my .vimrc on new tab
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
