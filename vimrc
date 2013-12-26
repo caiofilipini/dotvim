@@ -41,10 +41,6 @@ set visualbell t_vb=
 set fo=l
 
 "tab and indent settings
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
 set autoindent
 
 "folding settings
