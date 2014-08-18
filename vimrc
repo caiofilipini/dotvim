@@ -88,6 +88,7 @@ Plugin 'rking/ag.vim'
 Plugin 'nelstrom/vim-textobj-rubyblock'
 Plugin 'kana/vim-textobj-user'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 
@@ -128,8 +129,21 @@ colorscheme solarized
 "always show status line
 set laststatus=2
 
-"enable vim-powerline fancy icons
-let g:Powerline_symbols = 'fancy'
+"enable vim-airline fancy stuff
+let g:airline_theme              = 'powerlineish'
+let g:airline_powerline_fonts    = 1
+let g:airline_enable_branch      = 1
+let g:airline_symbols            =  get(g:, 'airline_symbols', {})
+let g:airline_left_sep           = '⮀'
+let g:airline_left_alt_sep       = '⮁'
+let g:airline_right_sep          = '⮂'
+let g:airline_right_alt_sep      = '⮃'
+let g:airline_symbols.branch     = '⭠'
+let g:airline_symbols.readonly   = '⭤'
+let g:airline_symbols.linenr     = '⭡'
+let g:airline_symbols.linenr     = '¶'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_section_c          = '%F'
 
 "== KEYBINDINGS ===================================================
 "make <c-l> clear the highlight as well as redraw
