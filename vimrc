@@ -27,6 +27,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
+Plugin 'SirVer/ultisnips'
 
 call vundle#end()
 
