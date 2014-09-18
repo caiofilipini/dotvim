@@ -28,6 +28,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
+Plugin 'vim-scripts/matchit.zip'
 
 call vundle#end()
 
