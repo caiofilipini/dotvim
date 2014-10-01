@@ -7,7 +7,7 @@ let g:ctrlp_user_command          = ['.git/', 'cd %s && git ls-files -co --exclu
 let g:ctrlp_working_path_mode     = 'r'
 
 "airline
-let g:airline_theme              = 'powerlineish'
+let g:airline_theme              = 'solarized'
 let g:airline_powerline_fonts    = 1
 let g:airline_enable_branch      = 1
 let g:airline_symbols            =  get(g:, 'airline_symbols', {})
