@@ -29,3 +29,11 @@ let g:UltiSnipsExpandTrigger       = "<tab>"
 let g:UltiSnipsJumpForwardTrigger  = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetDirectories  = ["snips"]
+
+"vim-go
+let g:go_fmt_command = "goimports"
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>i <Plug>(go-imports)
+set autowrite
