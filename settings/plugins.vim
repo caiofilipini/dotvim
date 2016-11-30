@@ -36,4 +36,5 @@ map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 autocmd FileType go nmap <leader>b <Plug>(go-build)
 autocmd FileType go nmap <leader>i <Plug>(go-imports)
+autocmd FileType go nmap <leader>tc <Plug>(go-test-compile)
 set autowrite
