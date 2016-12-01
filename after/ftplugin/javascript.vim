@@ -1,1 +1,1 @@
-setlocal ai ts=4 sw=4 softtabstop=4 expandtab
+setlocal ai ts=2 sw=2 softtabstop=2 expandtab
