@@ -2,18 +2,18 @@ snippet /^main/ "main" r
 package ${1:main}
 
 import(
-    "fmt"
+	"fmt"
 )
 
 func main() {
-    $2
+	$2
 }
 endsnippet
 snippet /^test/ "test" r
 package ${1:main}
 
 import(
-    "testing"
+	"testing"
 )
 
 $2
@@ -30,6 +30,11 @@ for ${2:name} := range ${1:collection} {
 endsnippet
 snippet if "If statement" b
 if ${1:condition}${1/(.+)/ /}{
+	${0:${VISUAL}}
+}
+endsnippet
+snippet err "If err is not nil" b
+if err != nil {
 	${0:${VISUAL}}
 }
 endsnippet
@@ -51,7 +56,7 @@ ${1:name} := ${0:value}
 endsnippet
 snippet	t "Test Function" w
 func Test${1:What}(t *testing.T) {
-    $2
+	$2
 
 	if actual != expected {
 		t.Errorf("Expected '%s' to == '%s'", actual, expected)
@@ -60,6 +65,6 @@ func Test${1:What}(t *testing.T) {
 endsnippet
 snippet	b "bench Function" b
 func Benchmark${1:What}(b *testing.B) {
-    $2
+	$2
 }
 endsnippet
