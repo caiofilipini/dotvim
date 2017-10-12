@@ -45,5 +45,5 @@ runtime settings/mappings.vim
 runtime settings/plugins.vim
 
 "colorscheme
-set background=dark
+set background=light
 colorscheme solarized
